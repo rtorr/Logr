@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Mad Science for Hackers -- New Post{% endblock %}
+{% block body %}
+  <div class="well" id="new-post-form" style="padding-left: 20%;">
+    <form class="form-horizontal" action="{{ url_for('new') }}" method="POST">
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label" for="post-title">Title</label>
+          <div class="controls">
+            <input type="text" class="input-xlarge" id="post-title" name="post-title">
+          </div>
+          <br />
+          <label class="control-label" for="post-body">Body</label>
+          <div class="controls">
+            <textarea class="input-xlarge" id="post-body" rows="5" name="post-body"></textarea>
+          </div><br />
+          <label class="control-label" for="post-cat">Category</label>
+          <div class="controls">
+            <select class="input-xlarge" name="post-cat">
+              {% for category in categories %}
+                <option>{{ category[0] }}</option>
+              {% endfor %}
+            </select>
+          </div><br />
+          <div class="controls">
+            <input class="btn btn-primary btn-large" type="submit" value="Post New Article">
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+{% endblock %}

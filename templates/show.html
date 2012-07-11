@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Mad Science for Hackers -- {{ article.title }}{% endblock %}
+
+{% block body %}
+  <div>
+    <div id="article-title">
+      <h2>{{ article.title }}</h2>
+    </div><br />
+    <div id="article-body">
+      {{ article.body|safe }}
+    </div>
+  </div>
+{% endblock %}

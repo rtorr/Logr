@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Mad Science for Hackers{% endblock %}
+
+{% block body %}<center>
+
+  <center>
+    {% for category in article_dict %}
+      <h3>{{ category['name'][0] }}</h3>
+      {% for article in category['articles'] %}
+        <a href="/b/{{ article.slug }}">{{ article.title }}</a><br />
+      {% else %}
+        <div class="alert alert-error">
+          Unbelievable. There's nothing here.
+        </div>
+      {% endfor %}
+      <br />
+    {% else %}
+      <div class="alert alert-error">
+        You must be new, because there aren't any categories yet. Try adding one.
+      </div>
+    {% endfor %}
+  </center>
+{% endblock %}
