@@ -1,6 +1,11 @@
-WEBSITE = 'website name'
-DATABASE = '/tmp/hacklog.db'
+# GLOBAL CONFIGURATION
+
+WEBSITE_NAME = 'WEBSITE_NAME'
+DATABASE_FILE = '/tmp/hacklog.db'
 DEBUG = True
-SECRET_KEY = 'secret key'
-USERNAME = 'username'
-PASSWORD = 'password'
+
+# SECURITY CONFIGURATION
+
+USERNAME = 'USERNAME'
+PASSWORD = 'PASSWORD'
+SECRET_KEY = 'SECRET_KEY'
