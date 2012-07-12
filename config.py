@@ -1,7 +1,6 @@
-# CONFIGURATION
-
-DATABASE = '/tmp/bh.db'
+WEBSITE = 'website name'
+DATABASE = '/tmp/hacklog.db'
 DEBUG = True
-SECRET_KEY = 'hfSSi^O8<4Cvm5ieDmMD*/vj+m7s6p'
+SECRET_KEY = 'secret key'
 USERNAME = 'username'
 PASSWORD = 'password'
