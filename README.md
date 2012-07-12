@@ -16,11 +16,15 @@ get.
 There are still a few things the project needs though, and those are outline in
 the next section.
 
+Next Feature
+============
+
+I'm working on Markdown support now. Hopefully this will be ready very soon.
+
 Roadmap
 =======
  - - - 
 
-- Include Markdown support.
 - Include support for code.
 - Add optional About, Contact, etc pages.
 - Write setup file.
