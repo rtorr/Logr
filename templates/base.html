@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% block title %}{% endblock %}</title>
+    <title>Logr -- {% block title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
   </head>
@@ -11,13 +11,9 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">{{ config["WEBSITE"] }}</a>
+          <a class="brand" href="/">{{ config["WEBSITE_NAME"] }}</a>
           <ul class="nav pull-right">
             <li><a href="/">Home</a></li>
-            <!--<li class="divider-vertical"></li>
-            <li><a href="/about">About</a></li>
-            <li class="divider-vertical"></li>
-            <li><a href="/projects">Projects</a></li>-->
           </ul>
         </div>
       </div>

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Mad Science for Hackers{% endblock %}
+{% block title %}/{% endblock %}
 
 {% block body %}<center>
 
   <center>
-    {% for category in article_dict %}
-      <h3>{{ category['name'][0] }}</h3>
-      {% for article in category['articles'] %}
+    {% for section in article_dict %}
+      <h3>{{ section['category'][0] }}</h3>
+      {% for article in section['articles'] %}
         <a href="/b/{{ article.slug }}">{{ article.title }}</a><br />
       {% else %}
         <div class="alert alert-error">

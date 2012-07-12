@@ -1,11 +1,11 @@
-Hacklog
-=======
+Logr
+====
  - - -
 
-Hacklog was built with a few simple rules in mind:
+Logr was built with a few simple rules in mind:
 
 1. Less is usually better.
-2. Hackers want a platform suited to their own needs.
+2. The ability to customize is good.
 3. Python is awesome.
 
 With these three things in mind, I set out to build a simple static blogging
