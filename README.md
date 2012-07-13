@@ -74,4 +74,4 @@ Notes
 
 _If you have any suggestions, I would love to hear them. My email is available
 through my GitHub profile. For an example of what the site looks like, click
-[here](high-summer-5107.herokuapp.com)._
+[here](http://high-summer-5107.herokuapp.com/)._
