@@ -1,3 +1,5 @@
+import os
+
 from os import listdir
 from os.path import isdir, isfile
 
@@ -26,16 +28,16 @@ def index():
         files = dict()
 
     for file_ in listdir(ARTICLE_DIR):
-        if isdir(ARTICLE_DIR + file_):
+        if isdir(os.path.join(ARTICLE_DIR, file_)):
             files[file_] = []
-            for f in listdir(ARTICLE_DIR + file_):
+            for f in listdir(os.path.join(ARTICLE_DIR, file_)):
                 if f.endswith('.md'):
-                    with open(ARTICLE_DIR + file_ + '/' + f, 'r') as f_open:
+                    with open(os.path.join(ARTICLE_DIR, file_, '/', f), 'r') as f_open:
                         title=f_open.readline()
                         files[file_].append(dict(file_=f, slug=slugify(title), title=title.decode('utf-8')))
         else:
             if file_.endswith('.md'):
-                with open(ARTICLE_DIR + file_, 'r') as f_open:
+                with open(os.path.join(ARTICLE_DIR, file_), 'r') as f_open:
                     title=f_open.readline()
                     files['Miscellaneous'].append(dict(file_=file_, slug=slugify(title), title=title))
 
@@ -50,15 +52,15 @@ def show(slug):
     Render a template to show this article.
     """
     for dir_ in listdir(ARTICLE_DIR):
-        if isdir(ARTICLE_DIR + dir_):
-            for file_ in listdir(ARTICLE_DIR + dir_):
-                with open(ARTICLE_DIR + dir_ + '/' + file_, 'r') as f_open:
+        if isdir(os.join(ARTICLE_DIR, dir_)):
+            for file_ in listdir(os.path.join(ARTICLE_DIR, dir_)):
+                with open(os.path.join(ARTICLE_DOR, dir_, '/', file_), 'r') as f_open:
                     if slug == slugify(f_open.readline()):
-                        article = ARTICLE_DIR + dir_ + '/' + file_
+                        article = os.path.join(ARTICLE_DIR, dir_, '/', file_)
         else:
-            with open(ARTICLE_DIR + dir_, 'r') as f_open:
+            with open(os.path.join(ARTICLE_DIR, dir_), 'r') as f_open:
                 if slug == slugify(f_open.readline()):
-                    article = ARTICLE_DIR + dir_
+                    article = os.path.join(ARTICLE_DIR, dir_)
 
     title = open(article, 'r').readline().decode('utf8')
     source = open(article, 'r').read().decode('utf8')
