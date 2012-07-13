@@ -32,7 +32,7 @@ def index():
             files[file_] = []
             for f in listdir(os.path.join(ARTICLE_DIR, file_)):
                 if f.endswith('.md'):
-                    with open(os.path.join(ARTICLE_DIR, file_, '/', f), 'r') as f_open:
+                    with open(os.path.join(ARTICLE_DIR, file_, f), 'r') as f_open:
                         title=f_open.readline()
                         files[file_].append(dict(file_=f, slug=slugify(title), title=title.decode('utf-8')))
         else:
@@ -52,11 +52,11 @@ def show(slug):
     Render a template to show this article.
     """
     for dir_ in listdir(ARTICLE_DIR):
-        if isdir(os.join(ARTICLE_DIR, dir_)):
+        if isdir(os.path.join(ARTICLE_DIR, dir_)):
             for file_ in listdir(os.path.join(ARTICLE_DIR, dir_)):
-                with open(os.path.join(ARTICLE_DOR, dir_, '/', file_), 'r') as f_open:
+                with open(os.path.join(ARTICLE_DIR, dir_, file_), 'r') as f_open:
                     if slug == slugify(f_open.readline()):
-                        article = os.path.join(ARTICLE_DIR, dir_, '/', file_)
+                        article = os.path.join(ARTICLE_DIR, dir_, file_)
         else:
             with open(os.path.join(ARTICLE_DIR, dir_), 'r') as f_open:
                 if slug == slugify(f_open.readline()):
