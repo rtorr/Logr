@@ -1,32 +1,39 @@
+from os import listdir
+from os.path import isdir
+
 from flask import Flask, request, session, g, redirect, url_for, abort, \
                   render_template, flash
+from flaskext.markdown import Markdown
 
 from utils import establish_db_connection, slugify
 
 logr = Flask(__name__)
 logr.config.from_object('config')
-
+Markdown(logr)
 
 @logr.route('/')
 def index():
     """
-    Maps to the / directory and lists articles, separated by category.
+    Lists all articles, separated by category. This method maps to the front
+    page.
     """
-    article_dict = []
-    categories = g.db.execute('SELECT name FROM categories ORDER BY name DESC')
-    categories = categories.fetchall()
-    for category in categories:
-        articles = g.db.execute('SELECT title, body, slug FROM articles WHERE \
-                                cat=? ORDER BY id DESC', [category[0]])
-        articles = articles.fetchall()
-        # Turn articles into a list of dicts to make the template more readable
-        articles = [dict(title=row[0], 
-                         body=row[1], 
-                         slug=row[2]) for row in articles]
-        article_dict.append(dict(category=category, articles=articles))        
-    
-    return render_template('index.html', article_dict=article_dict, 
-                           categories=categories)
+    # Create a dictionary `files` that separates articles by category.
+    files = dict(Miscellaneous=[])
+    for file_ in listdir('articles'):
+        if isdir('articles/' + file_):
+            files[file_] = []
+            for f in listdir('articles/' + file_):
+                if f.endswith('.md'):
+                    with open('articles/' + file_ + '/' + f, 'r') as f_open:
+                        title=f_open.readline()
+                        files[file_].append(dict(file_=f, slug=slugify(title), title=title))
+        else:
+            if file_.endswith('.md'):
+                with open('articles/' + file_, 'r') as f_open:
+                    title=f_open.readline()
+                    files['Miscellaneous'].append(dict(file_=file_, slug=slugify(title), title=title))
+    print files
+    return render_template('index.html', files=files)
 
 @logr.route('/new', methods=['POST', 'GET'])
 def new():
@@ -78,11 +85,18 @@ def show(slug):
     Search the database and retrieve the article whose slug matches <slug>.
     Render a template to show this article.
     """
-    article = g.db.execute('SELECT title, body, slug, cat FROM articles \
-                            WHERE slug=?', (slug,)).fetchone()
-    article = dict(title=article[0], body=article[1], slug=article[2], 
-                   category=article[3])
-    return render_template('show.html', article=article)
+    for dir_ in listdir('articles/'):
+        if isdir('articles/' + dir_):
+            for file_ in listdir('articles/' + dir_):
+                with open('articles/' + dir_ + '/' + file_, 'r') as f_open:
+                    if slug == slugify(f_open.readline()):
+                        article = 'articles/' + dir_ + '/' + file_
+        else:
+            with open('articles/' + dir_, 'r') as f_open:
+                if slug == slugify(f_open.readline()):
+                    article = 'articles/' + dir_
+
+    return render_template('show.html', article=open(article, 'r').read())
 
 @logr.route('/login', methods=['POST', 'GET'])
 def login():

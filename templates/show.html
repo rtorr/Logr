@@ -4,11 +4,6 @@
 
 {% block body %}
   <div>
-    <div id="article-title">
-      <h2>{{ article.title }}</h2>
-    </div><br />
-    <div id="article-body">
-      {{ article.body|safe }}
-    </div>
+    {{ article|markdown }}
   </div>
 {% endblock %}

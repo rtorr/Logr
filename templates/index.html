@@ -5,10 +5,10 @@
 {% block body %}<center>
 
   <center>
-    {% for section in article_dict %}
-      <h3>{{ section['category'][0] }}</h3>
-      {% for article in section['articles'] %}
-        <a href="/b/{{ article.slug }}">{{ article.title }}</a><br />
+    {% for key in files.iterkeys() %}
+      <h3>{{ key }}</h3>
+      {% for article in files[key] %}
+        <a href="/b/{{ article.slug }}">{{ article.title }}</a></br>
       {% else %}
         <div class="alert alert-error">
           Unbelievable. There's nothing here.
@@ -17,8 +17,9 @@
       <br />
     {% else %}
       <div class="alert alert-error">
-        You must be new, because there aren't any categories yet. Try adding one.
+        You must be new, because there don't seem to be any categories yet. Try adding one!
       </div>
     {% endfor %}
   </center>
+
 {% endblock %}
