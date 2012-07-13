@@ -51,7 +51,7 @@ def show(slug):
                 if slug == slugify(f_open.readline()):
                     article = 'articles/' + dir_
 
-    return render_template('show.html', article=open(article, 'r').read())
+    return render_template('show.html', article=open(article, 'r').read().decode('utf8'))
 
 if __name__ == '__main__':
     logr.run()
