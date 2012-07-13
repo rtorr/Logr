@@ -46,6 +46,12 @@ How It Works
 
 Logr was designed to be simple, and that's exactly what it is.
 
+The Front Page
+--------------
+
+To update the front page  **front.md** in the _pages_ directory and edit it to 
+your liking.
+
 Creating a Category
 -------------------
 

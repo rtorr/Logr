@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Logr -- {% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %}Logr</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
   </head>
 
@@ -12,7 +12,9 @@
         <div class="container">
           <a class="brand" href="/">{{ config["WEBSITE_NAME"] }}</a>
           <ul class="nav pull-right">
-            <li><a href="/">Home</a></li>
+            {% for link in config["NAV"] %}
+              <li><a href="{{ link['url'] }}">{{ link['title'] }}</a></li>
+            {% endfor %}
           </ul>
         </div>
       </div>
@@ -24,8 +26,13 @@
           <div class="alert alert-info">{{ message }}</div>
         {% endfor %}
       </div>
-      <div class="row">
-        {% block body %}{% endblock %}
+      <div class="row-fluid">
+        <div class="span3">
+            {% block article_links %}{% endblock %}
+        </div>
+        <div class="span9">
+            {% block body %}{% endblock %}
+        </div>
       </div>
       <div class="row" style="margin-bottom: 40px;"></div>
     </div>
