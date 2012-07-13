@@ -39,7 +39,7 @@ def index():
             if file_.endswith('.md'):
                 with open(os.path.join(ARTICLE_DIR, file_), 'r') as f_open:
                     title=f_open.readline()
-                    files['Miscellaneous'].append(dict(file_=file_, slug=slugify(title), title=title))
+                    files['Miscellaneous'].append(dict(file_=file_, slug=slugify(title), title=title.decode('utf-8')))
 
     blurb = open('pages/front.md', 'r').read()
 
