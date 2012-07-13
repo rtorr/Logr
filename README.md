@@ -36,6 +36,9 @@ Roadmap
   you're up and running.
 - Optional pages that could contain information about you, how to contact you,
   projects you're working on, or anything else.
+- Logr needs some design work.
+- Performance is not good. Need to index instead of calling listdir so much.
+- Add support for remote hosting of article files via Dropbox
 
 How It Works
 ============
