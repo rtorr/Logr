@@ -1,5 +1,7 @@
 Flask==0.9
+Flask-Markdown==0.3
 Jinja2==2.6
+Markdown==2.2.0
 Unidecode==0.04.9
 Werkzeug==0.8.3
 argparse==1.2.1

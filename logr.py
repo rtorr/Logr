@@ -25,7 +25,7 @@ def index():
                 if f.endswith('.md'):
                     with open('articles/' + file_ + '/' + f, 'r') as f_open:
                         title=f_open.readline()
-                        files[file_].append(dict(file_=f, slug=slugify(title), title=title))
+                        files[file_].append(dict(file_=f, slug=slugify(title), title=title.decode('utf-8')))
         else:
             if file_.endswith('.md'):
                 with open('articles/' + file_, 'r') as f_open:
