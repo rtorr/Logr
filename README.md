@@ -22,6 +22,12 @@ Add optional pages. These could contain information about yourself, how one
 would go about getting in contact with you, projects you're working on, or
 anything else!
 
+Preview
+=======
+ - - -
+
+Check out [this](http://www.brewerhimself.com/) site for a preview of the blog!
+
 Roadmap
 =======
  - - - 
@@ -73,5 +79,4 @@ Notes
    should be answered [here](http://daringfireball.net/projects/markdown/).
 
 _If you have any suggestions, I would love to hear them. My email is available
-through my GitHub profile. For an example of what the site looks like, click
-[here](http://high-summer-5107.herokuapp.com/)._
+through my GitHub profile._
