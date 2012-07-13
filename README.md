@@ -47,22 +47,31 @@ Creating an Article
 -------------------
 
 Open any text editor and write the article using the Markdown markup language.
-When you're done, save it to the appropriate directory. Anything in the 
-_articles_ directory will show up in the _Miscellaneous_ category.
+When you're done, save it to the appropriate directory. 
 
-The title of the article should be the first line of the file. This is what the
-link of the front page and the slug for the article are generated from. Choose
-wisely.
+Notes
+-----
 
-All files should be saved as _<filename>.md_. Any files that do not end in
-_.md_ will not show up on the website.
+ - Anything in the _articles_ directory will show up in the _Miscellaneous_ 
+   category.
+ - The title of the article should be the first line of the file. This is what 
+   the link of the front page and the slug for the article are generated from. 
+   Choose wisely.
+ - All files should be saved as _<filename>.md_. Any files that do not end in
+   _.md_ will not show up on the website.
 
-For example, if you wanted an article named _An Introduction to Software
-Engineering_ to appear in the _Software_ category, the location of the file
-would look like this: 
+Example
+------
 
--> **./articles/Software/intro\_to\_software\_engineering.md** <-
+Ff you wanted an article named _An Introduction to Software Engineering_ to 
+appear in the _Software_ category, the location of the file would look like 
+this: 
+
+ - **./articles/Software/intro\_to\_software\_engineering.md**
 
 All files are translated directly from Markdown to HTML. Keep this in mind when
 editing. If you have any questions about the Markdown syntax, they should be
 answered [here](http://daringfireball.net/projects/markdown/).
+
+_If you have any suggestions, I would love to hear them. My email is available
+through my GitHub profile._
