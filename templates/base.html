@@ -3,7 +3,6 @@
   <head>
     <title>Logr -- {% block title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
   </head>
 
   <body>
@@ -27,17 +26,6 @@
       </div>
       <div class="row">
         {% block body %}{% endblock %}
-      </div>
-      <div class="row" style="margin-top: 40px;">
-        <div class="pull-right">
-          {% if not session.logged_in %}
-            <a href="{{ url_for('login') }}">Log In</a>
-          {% else %}
-            <a href="{{ url_for('new') }}">New Post</a> |
-            <a href="{{ url_for('cat') }}">New Category</a> |
-            <a href="{{ url_for('logout') }}">Log Out</a>
-          {% endif %}
-        </div>
       </div>
     </div>
   </body>
