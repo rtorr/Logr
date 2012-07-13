@@ -33,6 +33,7 @@ Roadmap
 
 How It Works
 ============
+ - - -
 
 Logr was designed to be simple, and that's exactly what it is.
 
@@ -46,10 +47,10 @@ For example, if you wanted an article named _An Introduction to Software
 Engineering_ to appear in the _Software Engineering_ category, your filesystem
 might look like this:
 
-/logr
-../articles
-../articles/Software\ Engineering
-    + intro\_to\_software\_engineering.md
+\w/logr
+\w../articles
+\w../articles/Software\ Engineering
+\w    + intro\_to\_software\_engineering.md
 
 There are a few important things to note here:
 
