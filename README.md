@@ -44,13 +44,10 @@ category, just create a subdirectory in _articles_ and leave the file there.
 The name of the category is the same as the name of the subdirectory.
 
 For example, if you wanted an article named _An Introduction to Software
-Engineering_ to appear in the _Software Engineering_ category, your filesystem
-might look like this:
+Engineering_ to appear in the _Software Engineering_ category, the location of
+the file might look like this:
 
-/logr  
-../articles  
-../articles/Software\ Engineering  
-    + intro\_to\_software\_engineering.md  
+**./articles/Software\ Engineering/intro\_to\_software\_engineering.md**
 
 There are a few important things to note here:
 
